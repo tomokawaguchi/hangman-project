@@ -2,6 +2,8 @@ package hangman;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -141,5 +143,40 @@ public class HangmanUtils {
 			System.out.println("     ANSWEAR: " + questionWord);
 			System.out.println("--------------------------");
 		}
+	}
+
+	public static void logResults(boolean hasWon, int wrongCounter, String questionWord, FileWriter writer) throws IOException {
+		ArrayList<ArrayList<String>> resultsArr = new ArrayList<ArrayList<String>>();
+		String resultMsg = hasWon ? "WIN" : "LOSS";
+		
+		resultsArr.add(new ArrayList<String>());
+		resultsArr.get(resultsArr.size() - 1).add(questionWord);
+		resultsArr.get(resultsArr.size() - 1).add(resultMsg);
+		resultsArr.get(resultsArr.size() - 1).add(Integer.toString(++wrongCounter));
+		
+		
+		for(int i = 0; i < resultsArr.size(); i++) {				
+			// Writing a game results details in a file
+			writer.write("Question Word: " + resultsArr.get(i).get(0) + "\n");	
+			writer.write("Result: " + resultsArr.get(i).get(1) + "\n");
+			writer.write("Number of Guess: " + resultsArr.get(i).get(2) + "\n");
+			writer.write("\n");
+		}
+		
+	}
+
+	public static boolean handleGameSettings(char guessOption, Scanner settingInput, String guessType) {
+		System.out.println("Hi there!\nHow would you like to play the Hangman game?");		
+		System.out.println(" Enter l for guessing a letter\n Enter w for guessing a word");
+		guessOption = settingInput.next().charAt(0);
+		
+		guessType = (guessOption == 'w') ? "word" : "letter"; 
+		
+		System.out.println();
+		System.out.println(String.format("Your Selection: Playing single-player by guessing a %s", guessType));
+		System.out.println();
+		System.out.println("Are you ready?\n Enter y for YES to start a game\n Enter n for NO to select the game settings again");
+		
+		return (settingInput.next().charAt(0) == 'y') ? true : false;
 	}
 }
