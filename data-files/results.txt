@@ -1,0 +1,4 @@
+Question Word: boat
+Result: WIN
+Number of Guess: 2
+
