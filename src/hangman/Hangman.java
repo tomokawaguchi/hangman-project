@@ -11,8 +11,8 @@ public class Hangman {
 
 	public static void main(String[] args) throws Exception {
 		// Create a txt file to store the game results details
-		File resultsFile = new File("/Users/tomoko/Documents/NOLOGY/projects/hangman-project/data-files/results.txt");			
-		FileWriter writer = new FileWriter("/Users/tomoko/Documents/NOLOGY/projects/hangman-project/data-files/results.txt");
+		File resultsFile = new File("/Users/tomoko/Documents/NOLOGY/projects/hangman-project/src/data-files/results.txt");			
+		FileWriter writer = new FileWriter("/Users/tomoko/Documents/NOLOGY/projects/hangman-project/src/data-files/results.txt");
 		
 		char playerOption = 's'; // single player by default
 		char guessOption = 'l';  // guess a letter by default
