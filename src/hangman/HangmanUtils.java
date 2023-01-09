@@ -144,7 +144,16 @@ public class HangmanUtils {
 			System.out.println("--------------------------");
 		}
 	}
-
+	/**
+	 * 
+	 * @param hasWon - boolean value to indicate if a player won or not
+	 * @param wrongCounter - int value to indicate a number of mistakes made
+	 * @param questionWord - String value of question word
+	 * @param writer - FileWriter class 
+	 * @throws IOException
+	 * 
+	 * It handles storing the results in a  ArrayList<ArrayList<String>> and writing a results of the games in a file
+	 */
 	public static void logResults(boolean hasWon, int wrongCounter, String questionWord, FileWriter writer) throws IOException {
 		ArrayList<ArrayList<String>> resultsArr = new ArrayList<ArrayList<String>>();
 		String resultMsg = hasWon ? "WIN" : "LOSS";
@@ -163,20 +172,5 @@ public class HangmanUtils {
 			writer.write("\n");
 		}
 		
-	}
-
-	public static boolean handleGameSettings(char guessOption, Scanner settingInput, String guessType) {
-		System.out.println("Hi there!\nHow would you like to play the Hangman game?");		
-		System.out.println(" Enter l for guessing a letter\n Enter w for guessing a word");
-		guessOption = settingInput.next().charAt(0);
-		
-		guessType = (guessOption == 'w') ? "word" : "letter"; 
-		
-		System.out.println();
-		System.out.println(String.format("Your Selection: Playing single-player by guessing a %s", guessType));
-		System.out.println();
-		System.out.println("Are you ready?\n Enter y for YES to start a game\n Enter n for NO to select the game settings again");
-		
-		return (settingInput.next().charAt(0) == 'y') ? true : false;
 	}
 }
