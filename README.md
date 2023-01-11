@@ -2,7 +2,7 @@
 
 This project was built in Java and it allows users to play a hangman game in a Java console.
 
-![project snapshot](https://github.com/tomokawaguchi/hangman-project/src/project-snapshot.png)
+![project snapshot](https://github.com/tomokawaguchi/hangman-project/blob/develop/src/project-snapshot.png)
 
 ## Project Brief
 
