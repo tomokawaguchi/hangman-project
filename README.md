@@ -101,6 +101,8 @@ Either of player's selection in guessing style, player inputs will be stored in 
 
 - Through this project, I have managed to deepen my understanding of multi-dimensional ArrayList.
 
+- When I completed this project initially, I had `Hangman` class and `HangmanUtils` class holding static methods. This was not the Java way to organise the codes, more of JavaScript way. So I have refactor my project structure so that there is only `Hangman` class containing `main` method for the main logic and supporting methods underneath.
+
 ## Future Goals
 
 - Making a game to be multi-player or playing against a computer.
